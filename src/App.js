@@ -9,15 +9,17 @@ import { Details } from "./components/Details/Details";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div id="site">
         <Header />
-        <Router>
+        <main id="main-site">
+        <Router class="router-main">
           <div>
             <Route path={"/home"} component={Mainbar} />
             <Route path={"/details/:id"} component={Details} />
           </div>
         </Router>
-        <Sidebar />
+        <Sidebar class="sidebar" />
+        </main>
         <footer>Made by Rea Sunara - 2019</footer>
       </div>
     );

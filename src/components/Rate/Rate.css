@@ -8,6 +8,9 @@
     border-color: gray;
     margin-right: 1vw;
   }
+  .rate-div {
+      display: flex;
+  }
   #rate-btn1 {
       background-color: rgb(247, 79, 67);
   }

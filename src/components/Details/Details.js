@@ -1,13 +1,54 @@
 import React, { Component } from "react";
 import "./Details.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Rate } from "../Rate/Rate";
+import { FavBtn } from "../FavBtn/FavBtn";
 
 export class Details extends Component {
   render() {
     return (
-      <div>
-          Details
+      <div class="content">
+  <div class="content-header">
+    <a id="back-link">Back</a>
+    <h1>name</h1>
+    <div id="info-div">
+        <h3 id="product-price">price</h3>
+      <FavBtn id="product-fav" />
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="img-div">
+      <img
+        id="img"
+        src="../../assets/images/{{ product.picture }}"
+        alt="image name"
+      />
+    </div>
+    <p>description</p>
+  </div>
+  <Rate />
+  <br />
+  <br />
+  <div>
+    <h2>Reviews</h2>
+    <div class="reviews-div">
+      <div class="reviews">
+        <div class="rate-btns" id="rate-btn1">1</div>
+        <div class="rate-btns" id="rate-btn2">2</div>
+        <div class="rate-btns" id="rate-btn3">3</div>
+        <div class="rate-btns" id="rate-btn4">4</div>
+        <div class="rate-btns" id="rate-btn5">5</div>
+        <p>
+          <b>username:</b>
+          comment
+        </p>
       </div>
+    </div>
+  </div>
+  <br />
+  <br />
+</div>
+
     );
   }
 }
