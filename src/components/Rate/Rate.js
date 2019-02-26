@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 import "./Rate.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export class Rate extends Component {
+  constructor(props) {
+    super(props);
+    let rates = this.props.rates.map(review => review.rate);
+
+    this.state = {
+      rates: rates
+    };
+  }
+  Calculate = () => {
+    const sumRates = this.state.rates.reduce((sum, curr) => sum + curr);
+    let result =+ (sumRates / this.state.rates.length).toFixed(2);
+    return result;
+  }
   render() {
     return (
       <div>
         <p>
-          <b>Current rate: out of reviews.</b>
+          <b>Current rate: {this.Calculate()} out of reviews.</b>
         </p>
 
         <div class="rate-div">

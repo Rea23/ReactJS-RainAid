@@ -1,19 +1,32 @@
 import React, { Component } from "react";
 import "./FavBtn.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export class FavBtn extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      status: this.props.status
+    };
+  }
+  ChangeFav() {
+    this.setState({status: !this.state.status});
+  }
   render() {
-    return (
-      <div id="fav-div">
-        <i class="material-icons" title="Favourite" id="fav-btn1">
+    let content = "";
+    if (this.state.status)
+      content = (
+        <i onClick={this.ChangeFav.bind(this)} class="material-icons" title="Favourite" id="fav-btn1">
           favorite
         </i>
-        <i class="material-icons" title="Favourite" id="fav-btn2">
+      );
+    else
+      content = (
+        <i onClick={this.ChangeFav.bind(this)} class="material-icons" title="Favourite" id="fav-btn2">
           favorite
         </i>
-      </div>
-    );
+      );
+    return <div id="fav-div">{content}</div>;
   }
 }
 

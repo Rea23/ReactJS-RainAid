@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "./Mainbar.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Rate } from "../Rate/Rate";
 import { FavBtn } from "../FavBtn/FavBtn";
 import Products from "../../assets/products.json";
-import pic from "../../assets/images/umbrella1.jpg";
 
 export class Mainbar extends Component {
   render() {
@@ -14,7 +13,7 @@ export class Mainbar extends Component {
           <input id="search-input" type="text" placeholder="Search..." />
         </div>
         <div id="product-list">
-          {Products.map(Product => {
+          {Products.map((Product, index) => {
             return (
               <div class="product">
                 <div id="img-div">
@@ -26,15 +25,15 @@ export class Mainbar extends Component {
                 </div>
                 <div id="second-col">
                   <h2 id="product-header">
-                    <a>{Product.name}</a>
+                    <Link to={"details/"+Product.id}>{Product.name}</Link>
                   </h2>
                   <p id="product-price">
                     <b>${Product.price}</b>
                   </p>
-                  <FavBtn id="product-fav" />
+                  <FavBtn obj={Product} status={Product.flag} key={'key ${index}'} id="product-fav" />
                 </div>
                 <p id="product-description">{Product.description}</p>
-                <Rate id="product-reviews" />
+                <Rate rates={Product.reviews} id="product-reviews" />
               </div>
             );
           })}

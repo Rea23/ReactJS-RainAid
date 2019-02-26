@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Details.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Rate } from "../Rate/Rate";
 import { FavBtn } from "../FavBtn/FavBtn";
 
@@ -9,7 +9,7 @@ export class Details extends Component {
     return (
       <div class="content">
   <div class="content-header">
-    <a id="back-link">Back</a>
+    <Link to="/" id="back-link">Back</Link>
     <h1>name</h1>
     <div id="info-div">
         <h3 id="product-price">price</h3>
