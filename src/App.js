@@ -9,19 +9,19 @@ import { Details } from "./components/Details/Details";
 class App extends Component {
   render() {
     return (
+      <Router>
       <div id="site">
         <Header />
         <main id="main-site">
-        <Router>
           <div class="router-main">
-            <Route path={"/home"} component={Mainbar} />
-            <Route path={"/details/:id"} component={Details} />
+            <Route exact path="/" component={Mainbar} />
+            <Route path="/details/:id" component={Details} />
           </div>
-        </Router>
         <Sidebar class="sidebar" />
         </main>
         <footer>Made by Rea Sunara - 2019</footer>
       </div>
+      </Router>
     );
   }
 }

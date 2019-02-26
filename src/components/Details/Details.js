@@ -33,11 +33,11 @@ export class Details extends Component {
     <h2>Reviews</h2>
     <div class="reviews-div">
       <div class="reviews">
-        <div class="rate-btns" id="rate-btn1">1</div>
-        <div class="rate-btns" id="rate-btn2">2</div>
-        <div class="rate-btns" id="rate-btn3">3</div>
-        <div class="rate-btns" id="rate-btn4">4</div>
-        <div class="rate-btns" id="rate-btn5">5</div>
+        <div class="comm-rate-btns" id="rate-btn1">1</div>
+        <div class="comm-rate-btns" id="rate-btn2">2</div>
+        <div class="comm-rate-btns" id="rate-btn3">3</div>
+        <div class="comm-rate-btns" id="rate-btn4">4</div>
+        <div class="comm-rate-btns" id="rate-btn5">5</div>
         <p>
           <b>username:</b>
           comment
