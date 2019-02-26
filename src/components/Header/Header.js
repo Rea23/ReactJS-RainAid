@@ -5,7 +5,7 @@ import "./Header.css";
 export const Header = () => {
         return(
             <header class="header">
-                <img class="header-img" src={logo} />
+                <img class="header-img" src={logo} alt="RainAid" />
             </header>
         );
 }

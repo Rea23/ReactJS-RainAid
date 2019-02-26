@@ -12,8 +12,8 @@ class App extends Component {
       <div id="site">
         <Header />
         <main id="main-site">
-        <Router class="router-main">
-          <div>
+        <Router>
+          <div class="router-main">
             <Route path={"/home"} component={Mainbar} />
             <Route path={"/details/:id"} component={Details} />
           </div>
