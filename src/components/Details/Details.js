@@ -34,7 +34,7 @@ export class Details extends Component {
           </div>
           <p>{this.state.choosed.description}</p>
         </div>
-        {/* <Rate /> */}
+        <Rate rates={this.state.choosed.reviews} id="product-reviews" />
         <br />
         <br />
         <div>
