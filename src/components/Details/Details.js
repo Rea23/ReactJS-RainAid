@@ -5,6 +5,14 @@ import { Rate } from "../Rate/Rate";
 import { FavBtn } from "../FavBtn/FavBtn";
 
 export class Details extends Component {
+  constructor(props) {
+    super(props);
+    let product = this.props.obj;
+    this.state = {
+      choosed: this.props.obj
+    };
+  console.log(product);
+}
   render() {
     return (
       <div class="content">
@@ -12,7 +20,7 @@ export class Details extends Component {
     <Link to="/" id="back-link">Back</Link>
     <h1>name</h1>
     <div id="info-div">
-        <h3 id="product-price">price</h3>
+        <h3 id="product-price">{this.state.choosed.price}</h3>
       <FavBtn id="product-fav" />
     </div>
   </div>

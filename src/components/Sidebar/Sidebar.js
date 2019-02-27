@@ -1,25 +1,32 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import Products from "../../assets/products.json";
 
 export class Sidebar extends Component {
   render() {
     return (
       <div class="sidebar">
-  <h2 id="header-fav">Favourites</h2>
-  <div
-    id="product-div">
-    <img
-      id="img"
-      src="../../../assets/images/{{ product.picture }}"
-      alt="image name"
-    />
-    <div id="product-info">
-      <a><b>name</b></a>
-      <p>price</p>
-    </div>
-  </div>
-</div>
+        <h2 id="header-fav">Favourites</h2>
+        {Products.filter(prod => {
+          return prod.flag == true;
+        }).map((Product, index) => {
+          return (
+            <div id="product-div">
+              <img
+                id="img"
+                src={require("../../assets/images/" + Product.picture)}
+                alt={Product.name}
+              />
+              <div id="product-info">
+                <a>
+                  <b>{Product.name}</b>
+                </a>
+                <p>${Product.price}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }

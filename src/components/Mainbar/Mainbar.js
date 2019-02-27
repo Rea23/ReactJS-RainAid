@@ -6,6 +6,15 @@ import { FavBtn } from "../FavBtn/FavBtn";
 import Products from "../../assets/products.json";
 
 export class Mainbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      choosed: 0
+    };
+  }
+  OnClickDetails = (id) => {
+    this.props.fun(id);
+  }
   render() {
     return (
       <div id="mainbar-div">
@@ -25,7 +34,7 @@ export class Mainbar extends Component {
                 </div>
                 <div id="second-col">
                   <h2 id="product-header">
-                    <Link to={"details/" + Product.id}>{Product.name}</Link>
+                    <Link onClick={() => this.OnClickDetails(Product.id)} to={"details/" + Product.id}>{Product.name}</Link>
                   </h2>
                   <p id="product-price">
                     <b>${Product.price}</b>
