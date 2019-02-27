@@ -8,12 +8,9 @@ import Products from "../../assets/products.json";
 export class Mainbar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      choosed: 0
-    };
   }
   OnClickDetails = (id) => {
-    this.props.fun(id);
+    this.props.details(id);
   }
   render() {
     return (

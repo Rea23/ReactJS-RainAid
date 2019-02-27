@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productObj: 1
+      productObj: 0,
+      favProducts: Products
     };
   }
   ShowDetails(id) {
@@ -20,6 +21,10 @@ class App extends Component {
     }); 
     this.setState({productObj: product});
   };
+  // FavProductsAdd = (obj) => {
+  //   this.setState({favProducts: this.state.favProducts.push(obj)});
+  //   console.log(this.state.favProducts);
+  // }
   render() {
     return (
       <Router>
@@ -27,10 +32,11 @@ class App extends Component {
         <Header />
         <main id="main-site">
           <div class="router-main">
-            <Route exact path="/" render={(props) => <Mainbar {...props} fun={this.ShowDetails.bind(this)} />} />
+            <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favorites={this.state.favProducts} />} />
             <Route path="/details/:id" render={(props) => <Details {...props} obj={this.state.productObj} />} />
           </div>
-        <Sidebar class="sidebar" />
+        <Sidebar favorites={this.state.favProducts} class="sidebar" />
+        {/* <button onClick={() => this.FavProductsAdd(1)}>add</button> */}
         </main>
         <footer>Made by Rea Sunara - 2019</footer>
       </div>
