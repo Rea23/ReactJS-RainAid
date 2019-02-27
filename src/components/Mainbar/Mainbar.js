@@ -16,18 +16,13 @@ export class Mainbar extends Component {
     this.props.details(id);
   }
   OnSearch(event) {
-    this.setState({searchTyping: event.target.value});
-  }
-  fun = () => 
-  {
-    console.log(this.state.searchTyping);
+    this.setState({searchTyping: event.target.value.toLowerCase()});
   }
   render() {
     return (
       <div id="mainbar-div">
         <div id="search-div">
           <input id="search-input" type="text" placeholder="Search..." onChange={(event) => this.OnSearch(event)} />
-          <button onClick={() => this.fun()}>search</button>
         </div>
         <div id="product-list">
           {Products.filter(prod => {
