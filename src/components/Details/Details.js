@@ -26,7 +26,7 @@ export class Details extends Component {
     </div>
     <p>description</p>
   </div>
-  <Rate />
+  {/* <Rate /> */}
   <br />
   <br />
   <div>

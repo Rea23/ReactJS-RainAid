@@ -11,7 +11,7 @@ export class FavBtn extends Component {
   }
   ChangeFav() {
     this.setState({status: !this.state.status});
-  }
+  };
   render() {
     let content = "";
     if (this.state.status)

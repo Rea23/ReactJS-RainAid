@@ -19,13 +19,13 @@ export class Mainbar extends Component {
                 <div id="img-div">
                   <img
                     id="img"
-                    src={require("../../assets/images/umbrella1.jpg")}
-                    alt="image name"
+                    src={require("../../assets/images/"+ Product.picture)}
+                    alt={Product.name}
                   />
                 </div>
                 <div id="second-col">
                   <h2 id="product-header">
-                    <Link to={"details/"+Product.id}>{Product.name}</Link>
+                    <Link to={"details/" + Product.id}>{Product.name}</Link>
                   </h2>
                   <p id="product-price">
                     <b>${Product.price}</b>
