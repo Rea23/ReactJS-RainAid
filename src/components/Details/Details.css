@@ -21,6 +21,10 @@
     flex-direction: row;
     align-items: center;
   }
+  .comment-div {
+    display: flex;
+    flex-direction: row;
+  }
   #back-link {
     color: #0ab5f8f8;
     text-decoration: underline;
