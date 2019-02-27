@@ -8,18 +8,31 @@ import Products from "../../assets/products.json";
 export class Mainbar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      searchTyping: ""
+    };
   }
   OnClickDetails = (id) => {
     this.props.details(id);
+  }
+  OnSearch(event) {
+    this.setState({searchTyping: event.target.value});
+  }
+  fun = () => 
+  {
+    console.log(this.state.searchTyping);
   }
   render() {
     return (
       <div id="mainbar-div">
         <div id="search-div">
-          <input id="search-input" type="text" placeholder="Search..." />
+          <input id="search-input" type="text" placeholder="Search..." onChange={(event) => this.OnSearch(event)} />
+          <button onClick={() => this.fun()}>search</button>
         </div>
         <div id="product-list">
-          {Products.map((Product, index) => {
+          {Products.filter(prod => {
+            return prod.name.toLowerCase().indexOf(this.state.searchTyping) !== -1;
+          }).map((Product, index) => {
             return (
               <div class="product">
                 <div id="img-div">
