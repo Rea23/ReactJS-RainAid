@@ -4,17 +4,12 @@ import "./Sidebar.css";
 export class Sidebar extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      products: this.props.favorites
-    };
-
   }
   render() {
     return (
       <div class="sidebar">
         <h2 id="header-fav">Favourites</h2>
-        {this.state.products.map((Product, index) => {
+        {this.props.favorites.map((Product, index) => {
           return (
             <div id="product-div">
               <img
