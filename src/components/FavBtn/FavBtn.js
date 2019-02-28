@@ -14,7 +14,7 @@ export class FavBtn extends Component {
   };
   render() {
     let content = "";
-    if (this.state.status)
+    if (!this.state.status)
       content = (
         <i onClick={this.ChangeFav.bind(this)} class="material-icons" title="Favourite" id="fav-btn1">
           favorite

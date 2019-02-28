@@ -13,27 +13,23 @@ export class Sidebar extends Component {
     return (
       <div class="sidebar">
         <h2 id="header-fav">Favourites</h2>
-        {this.state.products
-          .filter(prod => {
-            return prod.flag == true;
-          })
-          .map((Product, index) => {
-            return (
-              <div id="product-div">
-                <img
-                  id="img"
-                  src={require("../../assets/images/" + Product.picture)}
-                  alt={Product.name}
-                />
-                <div id="product-info">
-                  <a>
-                    <b>{Product.name}</b>
-                  </a>
-                  <p>${Product.price}</p>
-                </div>
+        {this.state.products.map((Product, index) => {
+          return (
+            <div id="product-div">
+              <img
+                id="img"
+                src={require("../../assets/images/" + Product.picture)}
+                alt={Product.name}
+              />
+              <div id="product-info">
+                <a>
+                  <b>{Product.name}</b>
+                </a>
+                <p>${Product.price}</p>
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
       </div>
     );
   }

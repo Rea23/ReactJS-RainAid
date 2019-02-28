@@ -12,7 +12,9 @@ class App extends Component {
     super(props);
     this.state = {
       productObj: 0,
-      favProducts: Products
+      favProducts: Products.filter(prod => {
+        return prod.flag == true;
+      })
     };
   }
   ShowDetails(id) {
@@ -21,10 +23,14 @@ class App extends Component {
     }); 
     this.setState({productObj: product});
   };
-  // FavProductsAdd = (obj) => {
-  //   this.setState({favProducts: this.state.favProducts.push(obj)});
-  //   console.log(this.state.favProducts);
-  // }
+  FavProductsAdd = () => {
+    let list = Products.filter(prod => {
+      return prod.id == 1;
+    });
+    // this.setState({favProducts: this.state.favProducts.push(list)});
+    this.setState({favProducts: [...this.state.favProducts, list]});
+    console.log(this.state.favProducts);
+  }
   render() {
     return (
       <Router>
@@ -36,7 +42,7 @@ class App extends Component {
             <Route path="/details/:id" render={(props) => <Details {...props} obj={this.state.productObj} />} />
           </div>
         <Sidebar favorites={this.state.favProducts} class="sidebar" />
-        {/* <button onClick={() => this.FavProductsAdd(1)}>add</button> */}
+        <button onClick={() => this.FavProductsAdd()}>add</button>
         </main>
         <footer>Made by Rea Sunara - 2019</footer>
       </div>
