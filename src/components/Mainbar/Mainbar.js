@@ -18,6 +18,12 @@ export class Mainbar extends Component {
   OnSearch(event) {
     this.setState({searchTyping: event.target.value.toLowerCase()});
   }
+  OnClickFavAdd(prod) {
+    this.props.favAdd(prod);
+  }
+  OnClickFavRmv(id) {
+    this.props.favRmv(id);
+  }
   render() {
     return (
       <div id="mainbar-div">
@@ -44,7 +50,7 @@ export class Mainbar extends Component {
                   <p id="product-price">
                     <b>${Product.price}</b>
                   </p>
-                  <FavBtn obj={Product} status={Product.flag} key={'key ${index}'} id="product-fav" />
+                  <FavBtn obj={Product} status={Product.flag} key={'key ${index}'} favAdd={this.OnClickFavAdd.bind(this)} favRmv={() => this.OnClickFavRmv()} id="product-fav" />
                 </div>
                 <p id="product-description">{Product.description}</p>
                 <Rate rates={Product.reviews} id="product-reviews" />

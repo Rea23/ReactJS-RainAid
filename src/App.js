@@ -23,13 +23,16 @@ class App extends Component {
     }); 
     this.setState({productObj: product});
   };
-  FavProductsAdd = () => {
-    let list = Products.filter(prod => {
-      return prod.id == 1;
-    });
-    // this.setState({favProducts: this.state.favProducts.push(list)});
+  FavProductsAdd = (list) => {
     this.setState({favProducts: [...this.state.favProducts, list]});
     console.log(this.state.favProducts);
+  }
+  FavProductsRmv = (id) => {
+      let list = this.state.favProducts.filter(prod => {
+        return prod.id !== id;
+      });
+      this.setState({favProducts: list});
+      console.log(this.state.favProducts);
   }
   render() {
     return (
@@ -38,11 +41,10 @@ class App extends Component {
         <Header />
         <main id="main-site">
           <div class="router-main">
-            <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favorites={this.state.favProducts} />} />
+            <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favAdd={this.FavProductsAdd.bind(this)} />} favRmv={this.FavProductsRmv.bind(this)} />} />
             <Route path="/details/:id" render={(props) => <Details {...props} obj={this.state.productObj} />} />
           </div>
         <Sidebar favorites={this.state.favProducts} class="sidebar" />
-        <button onClick={() => this.FavProductsAdd()}>add</button>
         </main>
         <footer>Made by Rea Sunara - 2019</footer>
       </div>
