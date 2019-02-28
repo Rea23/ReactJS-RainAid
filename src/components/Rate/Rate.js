@@ -10,14 +10,17 @@ export class Rate extends Component {
       rates: rates
     };
   }
+
   Calculate = () => {
     const sumRates = this.state.rates.reduce((sum, curr) => sum + curr);
     let result =+ (sumRates / this.state.rates.length).toFixed(2);
     return result;
-  };
+  }
+
   SendRate = (newRate) => {
     this.setState({rates: [...this.state.rates, newRate]});
-  };
+  }
+  
   render() {
     return (
       <div>

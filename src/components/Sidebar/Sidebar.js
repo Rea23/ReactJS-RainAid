@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import Products from "../../assets/products.json";
 
 export class Sidebar extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       products: this.props.favorites
     };
+
   }
   render() {
     return (

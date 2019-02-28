@@ -8,22 +8,28 @@ import Products from "../../assets/products.json";
 export class Mainbar extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       searchTyping: ""
     };
   }
+
   OnClickDetails = (id) => {
     this.props.details(id);
   }
+
   OnSearch(event) {
     this.setState({searchTyping: event.target.value.toLowerCase()});
   }
+
   OnClickFavAdd(prod) {
     this.props.favAdd(prod);
   }
-  OnClickFavRmv(id) {
-    this.props.favRmv(id);
+
+  OnClickFavRmv(prod) {
+    this.props.favRmv(prod);
   }
+
   render() {
     return (
       <div id="mainbar-div">
@@ -50,7 +56,7 @@ export class Mainbar extends Component {
                   <p id="product-price">
                     <b>${Product.price}</b>
                   </p>
-                  <FavBtn obj={Product} status={Product.flag} key={'key ${index}'} favAdd={this.OnClickFavAdd.bind(this)} favRmv={() => this.OnClickFavRmv()} id="product-fav" />
+                  <FavBtn obj={Product} status={Product.flag} key={'key ${index}'} favAdd={this.OnClickFavAdd.bind(this)} favRmv={this.OnClickFavRmv.bind(this)} id="product-fav" />
                 </div>
                 <p id="product-description">{Product.description}</p>
                 <Rate rates={Product.reviews} id="product-reviews" />

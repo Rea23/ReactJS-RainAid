@@ -10,30 +10,35 @@ import Products from "./assets/products.json";
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       productObj: 0,
       favProducts: Products.filter(prod => {
-        return prod.flag == true;
+        return prod.flag === true;
       })
     };
   }
+
   ShowDetails(id) {
     let product =  Products.find(prod => {
-      return prod.id == id;
+      return prod.id === id;
     }); 
     this.setState({productObj: product});
-  };
+  }
+
   FavProductsAdd = (list) => {
     this.setState({favProducts: [...this.state.favProducts, list]});
     console.log(this.state.favProducts);
   }
-  FavProductsRmv = (id) => {
+
+  FavProductsRmv = (rmvProd) => {
       let list = this.state.favProducts.filter(prod => {
-        return prod.id !== id;
+        return prod.id !== rmvProd.id;
       });
       this.setState({favProducts: list});
       console.log(this.state.favProducts);
   }
+
   render() {
     return (
       <Router>
@@ -41,7 +46,7 @@ class App extends Component {
         <Header />
         <main id="main-site">
           <div class="router-main">
-            <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favAdd={this.FavProductsAdd.bind(this)} />} favRmv={this.FavProductsRmv.bind(this)} />} />
+            <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favAdd={this.FavProductsAdd.bind(this)} favRmv={this.FavProductsRmv.bind(this)} />} />
             <Route path="/details/:id" render={(props) => <Details {...props} obj={this.state.productObj} />} />
           </div>
         <Sidebar favorites={this.state.favProducts} class="sidebar" />

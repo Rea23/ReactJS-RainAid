@@ -9,13 +9,15 @@ export class FavBtn extends Component {
       status: this.props.status
     };
   }
+
   ChangeFav(prod) {
     this.setState({status: !this.state.status});
     if(this.state.status)
-      this.props.favAdd(prod);
+      this.props.favRmv(prod);
     else
-      this.props.favRmv(prod.id);
-  };
+      this.props.favAdd(prod);
+  }
+
   render() {
     let content = "";
     if (!this.state.status)

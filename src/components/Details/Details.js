@@ -7,10 +7,12 @@ import { FavBtn } from "../FavBtn/FavBtn";
 export class Details extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       choosed: this.props.obj
     };
   }
+  
   render() {
     return (
       <div class="content">
