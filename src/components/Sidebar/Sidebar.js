@@ -23,9 +23,9 @@ export class Sidebar extends Component {
                 alt={Product.name}
               />
               <div id="product-info">
-                <a>
+                <h4>
                   <b>{Product.name}</b>
-                </a>
+                </h4>
                 <p>${Product.price}</p>
               </div>
             </div>

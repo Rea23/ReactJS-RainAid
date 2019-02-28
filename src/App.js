@@ -49,7 +49,7 @@ class App extends Component {
             <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favAdd={this.FavProductsAdd.bind(this)} favRmv={this.FavProductsRmv.bind(this)} />} />
             <Route path="/details/:id" render={(props) => <Details {...props} obj={this.state.productObj} />} />
           </div>
-        <Sidebar favorites={this.state.favProducts} class="sidebar" />
+        <Sidebar key={'key ${index}'} favorites={this.state.favProducts} class="sidebar" />
         </main>
         <footer>Made by Rea Sunara - 2019</footer>
       </div>

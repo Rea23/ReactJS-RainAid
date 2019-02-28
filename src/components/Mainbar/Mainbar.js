@@ -36,7 +36,7 @@ export class Mainbar extends Component {
         <div id="search-div">
           <input id="search-input" type="text" placeholder="Search..." onChange={(event) => this.OnSearch(event)} />
         </div>
-        <div id="product-list">
+        <div className="product-list">
           {Products.filter(prod => {
             return prod.name.toLowerCase().indexOf(this.state.searchTyping) !== -1;
           }).map((Product, index) => {
