@@ -20,39 +20,64 @@ class App extends Component {
   }
 
   ShowDetails(id) {
-    let product =  Products.find(prod => {
+    let product = Products.find(prod => {
       return prod.id === id;
-    }); 
-    this.setState({productObj: product});
-  }
+    });
+    this.setState({ productObj: product });
+  };
 
-  FavProductsAdd = (list) => {
-    this.setState({favProducts: [...this.state.favProducts, list]});
+  FavProductsAdd = list => {
+    this.setState({ favProducts: [...this.state.favProducts, list] });
     console.log(this.state.favProducts);
-  }
+  };
 
-  FavProductsRmv = (rmvProd) => {
-      let list = this.state.favProducts.filter(prod => {
-        return prod.id !== rmvProd.id;
-      });
-      this.setState({favProducts: list});
-      console.log(this.state.favProducts);
-  }
+  FavProductsRmv = rmvProd => {
+    let list = this.state.favProducts.filter(prod => {
+      return prod.id !== rmvProd.id;
+    });
+    this.setState({ favProducts: list });
+    console.log(this.state.favProducts);
+  };
 
   render() {
     return (
       <Router>
-      <div id="site">
-        <Header />
-        <main id="main-site">
-          <div class="router-main">
-            <Route exact path="/" render={(props) => <Mainbar {...props} details={this.ShowDetails.bind(this)} favAdd={this.FavProductsAdd.bind(this)} favRmv={this.FavProductsRmv.bind(this)} />} />
-            <Route path="/details/:id" render={(props) => <Details {...props} obj={this.state.productObj} />} />
-          </div>
-        <Sidebar key={'key ${index}'} favorites={this.state.favProducts} class="sidebar" />
-        </main>
-        <footer>Made by Rea Sunara - 2019</footer>
-      </div>
+        <div id="site">
+          <Header />
+          <main id="main-site">
+            <div class="router-main">
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <Mainbar
+                    {...props}
+                    details={this.ShowDetails.bind(this)}
+                    favAdd={this.FavProductsAdd.bind(this)}
+                    favRmv={this.FavProductsRmv.bind(this)}
+                  />
+                )}
+              />
+              <Route
+                path="/details/:id"
+                render={props => (
+                  <Details
+                    {...props}
+                    obj={this.state.productObj}
+                    favAdd={this.FavProductsAdd.bind(this)}
+                    favRmv={this.FavProductsRmv.bind(this)}
+                  />
+                )}
+              />
+            </div>
+            <Sidebar
+              key={"key ${index}"}
+              favorites={this.state.favProducts}
+              class="sidebar"
+            />
+          </main>
+          <footer>Made by Rea Sunara - 2019</footer>
+        </div>
       </Router>
     );
   }

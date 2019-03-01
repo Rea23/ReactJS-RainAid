@@ -12,7 +12,15 @@ export class Details extends Component {
       choosed: this.props.obj
     };
   }
-  
+
+  OnClickFavAdd(prod) {
+    this.props.favAdd(prod);
+  }
+
+  OnClickFavRmv(prod) {
+    this.props.favRmv(prod);
+  }
+
   render() {
     return (
       <div class="content">
@@ -23,7 +31,14 @@ export class Details extends Component {
           <h1>{this.state.choosed.name}</h1>
           <div id="info-div">
             <h3 id="product-price">${this.state.choosed.price}</h3>
-            <FavBtn id="product-fav" />
+            <FavBtn
+              obj={this.state.choosed}
+              status={this.state.choosed.flag}
+              key={"key ${index}"}
+              favAdd={this.OnClickFavAdd.bind(this)}
+              favRmv={this.OnClickFavRmv.bind(this)}
+              id="product-fav"
+            />
           </div>
         </div>
         <div class="main-content">
@@ -44,11 +59,13 @@ export class Details extends Component {
           <div class="reviews-div">
             {this.state.choosed.reviews.map(Review => {
               return (
-                  <p class="comment-div">
-                    <b>{Review.username} ({Review.rate}) &nbsp;</b>
-                    {Review.comment} 
-                    <br />
-                  </p>
+                <p class="comment-div">
+                  <b>
+                    {Review.username} ({Review.rate}) &nbsp;
+                  </b>
+                  {Review.comment}
+                  <br />
+                </p>
               );
             })}
           </div>

@@ -11,24 +11,32 @@ export class FavBtn extends Component {
   }
 
   ChangeFav(prod) {
-    this.setState({status: !this.state.status});
-    if(this.state.status)
-      this.props.favRmv(prod);
-    else
-      this.props.favAdd(prod);
+    this.setState({ status: !this.state.status });
+    if (this.state.status) this.props.favRmv(prod);
+    else this.props.favAdd(prod);
   }
 
   render() {
     let content = "";
     if (!this.state.status)
       content = (
-        <i onClick={() => this.ChangeFav(this.props.obj)} class="material-icons" title="Favourite" id="fav-btn1">
+        <i
+          onClick={() => this.ChangeFav(this.props.obj)}
+          class="material-icons"
+          title="Favourite"
+          id="fav-btn1"
+        >
           favorite
         </i>
       );
     else
       content = (
-        <i onClick={() => this.ChangeFav(this.props.obj)} class="material-icons" title="Favourite" id="fav-btn2">
+        <i
+          onClick={() => this.ChangeFav(this.props.obj)}
+          class="material-icons"
+          title="Favourite"
+          id="fav-btn2"
+        >
           favorite
         </i>
       );
