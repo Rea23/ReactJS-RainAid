@@ -2,4 +2,4 @@
 
 Domaći rad - Napredne Web tehnologije
 
-### Izrađen "web shop" koristeći [Reatc.js](https://reactjs.org/)
+### Izrađen "web shop" koristeći [React.js](https://reactjs.org/)
