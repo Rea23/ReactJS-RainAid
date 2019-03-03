@@ -60,8 +60,13 @@ export class Details extends Component {
             {this.state.choosed.reviews.map(Review => {
               return (
                 <p class="comment-div">
+                {Review.rate == 5 && <div class="comm-rate-btns" id="rate-div5">5</div>}
+                {Review.rate == 4 && <div class="comm-rate-btns" id="rate-div4">4</div>}
+                {Review.rate == 3 && <div class="comm-rate-btns" id="rate-div3">3</div>}
+                {Review.rate == 2 && <div class="comm-rate-btns" id="rate-div2">2</div>}
+                {Review.rate == 1 && <div class="comm-rate-btns" id="rate-div1">1</div>}
                   <b>
-                    {Review.username} ({Review.rate}) &nbsp;
+                    {Review.username}&nbsp;
                   </b>
                   {Review.comment}
                   <br />
